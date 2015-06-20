@@ -117,16 +117,17 @@ $(function(){
     return w[w.length - 1];
   }
 
-  function mkSentence(){
+  function mkSentence(len){
     var out = [];
     var target = getNext();
     out.push(target);
-    var len = Math.floor(Math.random() * 4);
+
     for(var i = 0; i < len; i ++){
       var l = last(target[0][0]); // 続き文字
       target = getNextByHead(l);
       out.push(target);
     }
+
     var target = getByHead(last(target[0][0]));
     out.push(target);
     return out;
@@ -169,8 +170,9 @@ $(function(){
 
   function init(){
     $('.contents').empty();
+    $('.contents').append($('<h2>').text("2連"));
     for(var i =0; i <12; i ++){
-      var sen = mkSentence()
+      var sen = mkSentence(0)
       $('.contents').append(
         $('<div>')
           .append($('<span>').html(ppr(sen)))
@@ -178,6 +180,30 @@ $(function(){
           .append($('<a>').attr('href','https://twitter.com/intent/tweet?text=' + encodeURIComponent("「" + pp(sen) + " (" + pp2(sen) + ")」 #zougo " + document.location.href)).attr('target','_blank').addClass('tw').text("[つぶやく]"))
       )
     }
+    $('.contents').append($('<hr>'));
+    $('.contents').append($('<h2>').text("3連"));
+    for(var i =0; i <12; i ++){
+      var sen = mkSentence(1)
+      $('.contents').append(
+        $('<div>')
+          .append($('<span>').html(ppr(sen)))
+          //.append($('<span>').text(pp(sen)  + '('+ pp2(sen) + ')'))
+          .append($('<a>').attr('href','https://twitter.com/intent/tweet?text=' + encodeURIComponent("「" + pp(sen) + " (" + pp2(sen) + ")」 #zougo " + document.location.href)).attr('target','_blank').addClass('tw').text("[つぶやく]"))
+      )
+    }
+ 
+    $('.contents').append($('<hr>'));
+    $('.contents').append($('<h2>').text("4連以上"));
+    for(var i =0; i <12; i ++){
+      var sen = mkSentence(Math.floor(Math.random()*5 + 2))
+      $('.contents').append(
+        $('<div>')
+          .append($('<span>').html(ppr(sen)))
+          //.append($('<span>').text(pp(sen)  + '('+ pp2(sen) + ')'))
+          .append($('<a>').attr('href','https://twitter.com/intent/tweet?text=' + encodeURIComponent("「" + pp(sen) + " (" + pp2(sen) + ")」 #zougo " + document.location.href)).attr('target','_blank').addClass('tw').text("[つぶやく]"))
+      )
+    }
+ 
   }
   init();
 

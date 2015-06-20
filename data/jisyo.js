@@ -1,0 +1,1 @@
+../work/jisyo.js

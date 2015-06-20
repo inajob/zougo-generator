@@ -1,0 +1,46 @@
+/* style sheet */
+
+body{
+  background-color:#cdc;
+}
+.contents div{
+  padding:5px;
+  margin:2px;
+  font-size:1.2em;
+  background-color:#eef;
+  width:100%;
+  float:left;
+}
+.contents div span{
+}
+
+.tar{
+  text-align:right;
+}
+
+button{
+  padding:10px;
+  border:solid 1px;
+  background-color:#faa;
+}
+
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}
+
+.tac{
+  text-align:center;
+}
+.pad10{
+  padding:10px;
+}
